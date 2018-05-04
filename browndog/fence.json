@@ -1,14 +1,14 @@
 {
-    "label": "Clowder for Browndog",
-    "key": "clowderbd",
-    "description": "A scalable data repository where you can share, organize and analyze data.",
+    "label": "Browndog",
+    "key": "bd",
+    "description": "API Gateway for Brown Dog Services.",
     "image": {
-	"name": "clowder/clowder",
+	"name": "ndslabs/fence",
 	"tags" : ["latest"]
     },
     "display": "stack",
     "access": "external",
-    "logo": "/asset/png/logos/clowder-logo.png",
+    "logo": "https://browndog.ncsa.illinois.edu/images/bd3a_3d.png?crc=4243147919",
     "depends": [
         {
             "key": "mongo",
@@ -16,47 +16,27 @@
         },
         {
             "key": "rabbitmq",
+            "required": true
+        },
+        {
+            "key": "redis",
+            "required": true
+        },
+        {
+            "key": "clowderbd",
+            "required": true
+        },
+        {
+            "key": "polyglot",
+            "required": true
+        },
+        {
+            "key": "extractorocr",
             "required": false
         },
         {
-            "key": "elasticsearch",
-            "required": false
-        },
-        {
-            "key": "imagepreview",
-            "required": false
-        },
-        {
-            "key": "imagemetadata",
-            "required": false
-        },
-        {
-            "key": "pdfpreview",
-            "required": false
-        },
-        {
-            "key": "audiopreview",
-            "required": false
-        },
-        {
-            "key": "speech2text",
-            "required": false
-        },
-        {
-            "key": "videopreview",
-            "required": false
-        },
-        {
-            "key": "plantcv",
-            "required": false
-        },
-        {
-            "key": "digestextractor",
-            "required": false
-        },
-        {
-            "key": "officepreview",
-            "required": false
+          "key":"convtemplate",
+          "required": false
         }
     ],
     "config":  [
@@ -87,14 +67,29 @@
             "canOverride": false
         },
         {
-            "name": "RABBITMQ_URI",
-            "value": "amqp://guest:guest@$(NDSLABS_STACK)-rabbitmq:5672/%2f",
+            "name": "DTS_URL",
+            "value": "http://$(NDSLABS_STACK)-clowderbd:9000",
+            "canOverride": false
+        },
+        {
+            "name": "DAP_URL",
+            "value": "http://$(NDSLABS_STACK)-polyglot:8184",
+            "canOverride": false
+        },
+        {
+            "name": "REDIS_HOST",
+            "value": "$(NDSLABS_STACK)-redis",
+            "canOverride": false
+        },
+        {
+            "name": "REDIS_PORT",
+            "value": "6379",
             "canOverride": false
         }
     ],
     "ports": [
         {
-            "port": 9000,
+            "port": 8080,
             "protocol": "http",
             "contextPath": "/"
         }
@@ -107,8 +102,8 @@
     },
     "readinessProbe" : {
         "type" : "http",
-        "path" : "/assets/stylesheets/main.css",
-        "port" : 9000,
+        "path" : "/ok",
+        "port" : 8080,
         "initialDelay": 10,
         "timeout" : 60
     },

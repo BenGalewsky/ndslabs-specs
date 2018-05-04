@@ -1,0 +1,57 @@
+{
+    "key": "bdnotebook",
+    "label": "Brown Dog API Notebook",
+    "description": "Jupyter notebook for Brown Dog API",
+    "logo": "https://browndog.ncsa.illinois.edu/images/bd3a_3d.png?crc=4243147919",
+    "image": {
+        "name": "ndslabs/bd-notebook",
+        "tags": [
+            "latest"
+        ]
+    },
+    "display": "stack",
+    "access": "external",
+    "config": [
+        {
+            "name": "PASSWORD",
+            "value": "",
+            "label": "Password",
+            "isPassword": true,
+            "canOverride": false
+        }
+    ],
+    "ports": [
+        {
+            "port": 8888,
+            "protocol": "http",
+            "contextPath": "/"
+        }
+    ],
+    "repositories": [
+		{
+			"type": "git",
+			"url" : "https://github.com/jupyter/notebook"
+		}
+	],
+    "readinessProbe": {
+        "type": "http",
+        "path": "/static/base/images/favicon.ico",
+        "port": 8888,
+        "initialDelay": 5,
+        "timeout": 600
+    },
+    "volumeMounts": [
+		{
+			"mountPath": "/home/jovyan/work"
+		}
+    ],
+    "resourceLimits": {
+        "cpuMax": 500,
+        "cpuDefault": 100,
+        "memMax": 1000,
+        "memDefault": 50
+    },
+	"developerEnvironment" : "cloud9nodejs",
+    "info" : "https://opensource.ncsa.illinois.edu/confluence/display/BD/DIBBs%3A+Brown+Dog",
+    "tags": ["7", "21", "20", "28"]
+}

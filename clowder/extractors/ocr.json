@@ -1,0 +1,40 @@
+{
+    "key": "extractorocr",
+    "label": "OCR extractor",
+    "description": "Clowder extractor for ocr",
+    "image": {
+        "name": "clowder/extractors-ocr",
+        "tags" : ["browndog"]
+    },
+    "access": "internal",
+    "depends": [
+        {
+            "key": "rabbitmq",
+            "required": true
+        }
+    ],
+    "config":  [
+        {
+            "name": "RABBITMQ_EXCHANGE",
+            "value": "clowder",
+            "canOverride": false
+        },
+        {
+            "name": "RABBITMQ_URI",
+            "value": "amqp://guest:guest@$(NDSLABS_STACK)-rabbitmq:5672/%2f",
+            "canOverride": false
+        },
+        {
+            "name": "RABBITMQ_QUEUE",
+            "value": "ncsa.image.ocr",
+            "canOverride": true
+        }
+    ],
+    "resourceLimits": {
+        "cpuMax": 200,
+        "cpuDefault": 100,
+        "memMax": 250,
+        "memDefault": 25
+    },
+    "tags" : ["27"]
+}

@@ -1,0 +1,70 @@
+{
+    "key": "polyglot",
+    "label": "Polyglot",
+    "description": "Polyglot is a distributed service which carries out file format conversions.",
+    "logo": "https://secure.gravatar.com/avatar/120a10c7ad2fd8d764fc9636c36c0027.jpg?s=80&r=g&d=mm",
+    "image": {
+        "registry": "",
+        "name": "ncsapolyglot/polyglot",
+        "tags": [
+            "latest"
+        ]
+    },
+    "display": "stack",
+    "access": "external",
+    "depends": [
+        {
+            "key": "mongo",
+            "required": true
+        },
+        {
+            "key": "rabbitmq",
+            "required": true
+        }
+    ],
+    "config": [
+      {
+          "name": "MONGO_SERVER",
+          "value": "$(NDSLABS_STACK)-mongo",
+          "canOverride": false
+      },
+      {
+          "name": "RABBITMQ_URI",
+          "value": "amqp://guest:guest@$(NDSLABS_STACK)-rabbitmq:5672/%2f",
+          "canOverride": false
+      }
+    ],
+    "ports": [
+        {
+            "port": 8184,
+            "protocol": "http",
+            "contextPath": "/"
+        }
+    ],
+    "repositories": [
+        {
+            "url": "https://opensource.ncsa.illinois.edu/bitbucket/scm/cats/clowder.git",
+            "type": "git"
+        }
+    ],
+    "readinessProbe": {
+        "type": "http",
+        "path": "/alive",
+        "port": 8184,
+        "initialDelay": 10,
+        "timeout": 60
+    },
+    "resourceLimits": {
+        "cpuMax": 200,
+        "cpuDefault": 100,
+        "memMax": 1000,
+        "memDefault": 250
+    },
+    "tags": [
+        "2",
+        "22",
+        "36"
+    ],
+    "info": "https://nationaldataservice.atlassian.net/wiki/display/NDSC/Clowder",
+    "authRequired": true
+}

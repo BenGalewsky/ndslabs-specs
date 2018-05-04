@@ -1,0 +1,30 @@
+{
+    "key": "convtemplate",
+    "label": "ImageMagick Converter",
+    "description": "ImageMagick Converter for various Image Files",
+    "image": {
+        "name": "browndog/converters-template",
+        "tags" : ["latest"]
+    },
+    "access": "internal",
+    "depends": [
+        {
+            "key": "rabbitmq",
+            "required": true
+        }
+    ],
+    "config":  [
+        {
+            "name": "RABBITMQ_URI",
+            "value": "amqp://guest:guest@$(NDSLABS_STACK)-rabbitmq:5672/%2f",
+            "canOverride": false
+        }
+    ],
+    "resourceLimits": {
+        "cpuMax": 200,
+        "cpuDefault": 100,
+        "memMax": 250,
+        "memDefault": 25
+    },
+    "tags" : ["27"]
+}
