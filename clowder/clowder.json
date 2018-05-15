@@ -3,8 +3,8 @@
     "key": "clowderbd",
     "description": "A scalable data repository where you can share, organize and analyze data.",
     "image": {
-	"name": "clowder/clowder",
-	"tags" : ["latest"]
+	"name": "ndslabs/clowder",
+	"tags" : ["v1.4.1"]
     },
     "display": "stack",
     "access": "external",
