@@ -71,8 +71,8 @@
             "canOverride": false
         },
         {
-            "name": "RABBITMQ_EXCHANGE",
-            "value": "clowder",
+            "name": "CLOWDER_URI",
+            "value": "http://$(NDSLABS_STACK)-clowder:9000",
             "canOverride": false
         },
         {
