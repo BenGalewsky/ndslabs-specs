@@ -1,5 +1,5 @@
 {
-    "key": "rabbitmq2",
+    "key": "rabbitmq",
     "label": "RabbitMQ",
     "description": "A highly reliable enterprise messaging system",
 	"logo" : "/asset/png/logos/rabbitmq-logo.png",

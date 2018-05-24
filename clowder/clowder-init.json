@@ -9,20 +9,7 @@
     "display": "standalone",
     "access": "external",
     "logo": "https://browndog.ncsa.illinois.edu/images/bd3a_3d.png?crc=4243147919",
-    "depends": [
-        {
-            "key": "mongo",
-            "required": true
-        },
-        {
-            "key": "rabbitmq",
-            "required": true
-        },
-        {
-            "key": "clowderbd",
-            "required": true
-        }
-    ],
+    "depends": [    ],
     "config":  [
         {
             "name": "CLOWDER_PORT_9000_TCP_ADDR",

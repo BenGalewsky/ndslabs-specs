@@ -27,6 +27,10 @@
             "required": true
         },
         {
+            "key": "clowder-init",
+            "required": true
+        },
+        {
             "key": "polyglot",
             "required": true
         },
@@ -85,7 +89,55 @@
             "name": "REDIS_PORT",
             "value": "6379",
             "canOverride": false
+        },
+
+
+        {
+            "name": "CLOWDER_PORT_9000_TCP_ADDR",
+            "value": "$(NDSLABS_STACK)-clowderbd",
+            "canOverride": false
+        },
+        {
+            "name": "MONGO_PORT_27017_TCP_ADDR",
+            "value": "$(NDSLABS_STACK)-mongo",
+            "canOverride": false
+        },
+        {
+            "name": "RABBITMQ_PORT_15672_TCP_ADDR",
+            "value": "$(NDSLABS_STACK)-rabbitmq",
+            "canOverride": false
+        },
+        {
+            "name": "CLOWDER_SERVER",
+            "value": "http://$(NDSLABS_STACK)-clowderbd",
+            "canOverride": false
+        },
+        {
+            "name": "MONGO_URI",
+            "value": "mongodb://$(NDSLABS_STACK)-mongo:27017/clowder",
+            "canOverride": false
+        },
+        {
+            "name": "ADMIN",
+            "value": "true",
+            "canOverride": false
+        },
+        {
+            "name": "EMAIL_ADDRESS",
+            "value": "admin@test.com",
+            "canOverride": true
+        },
+        {
+            "name": "PASSWORD",
+            "value": "testing0909",
+            "canOverride": true
+        },
+        {
+          "name":"SLEEP_WHEN_DONE",
+          "value": "true",
+          "canOverride": false
         }
+
     ],
     "ports": [
         {
