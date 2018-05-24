@@ -1,10 +1,10 @@
 {
-    "key": "cloud9py",
-    "label": "Cloud9 Python",
+    "key": "cloud9py2",
+    "label": "Cloud9 Python (develop)",
     "image": {
 		"name": "ndslabs/cloud9-python",
-		"tags": ["latest"]
-	}, 
+		"tags": ["develop"]
+	},
     "display": "stack",
     "access": "external",
     "description": "Python development environment based on Cloud9",
