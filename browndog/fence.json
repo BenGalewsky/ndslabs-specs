@@ -1,10 +1,10 @@
 {
     "label": "Browndog",
-    "key": "bd",
+    "key": "bd2",
     "description": "API Gateway for Brown Dog Services.",
     "image": {
-	"name": "ndslabs/fence",
-	"tags" : ["latest"]
+	     "name": "ndslabs/fence",
+	     "tags" : ["latest"]
     },
     "display": "stack",
     "access": "external",
@@ -27,7 +27,7 @@
             "required": true
         },
         {
-            "key": "clowder-init",
+            "key": "clowderinit",
             "required": true
         },
         {
@@ -105,6 +105,11 @@
         {
             "name": "RABBITMQ_PORT_15672_TCP_ADDR",
             "value": "$(NDSLABS_STACK)-rabbitmq",
+            "canOverride": false
+        },
+        {
+            "name": "RABBITMQ_CLOWDERURL",
+            "value": "http://$(NDSLABS_STACK)-clowderbd",
             "canOverride": false
         },
         {
