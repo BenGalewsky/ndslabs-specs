@@ -109,7 +109,7 @@
         },
         {
             "name": "RABBITMQ_CLOWDERURL",
-            "value": "http://$(NDSLABS_STACK)-clowderbd",
+            "value": "http://$(NDSLABS_STACK)-clowderbd:9000",
             "canOverride": false
         },
         {
