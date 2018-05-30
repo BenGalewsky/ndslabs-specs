@@ -82,7 +82,7 @@
             "canOverride": true
         },
         {
-            "name": "MONGO_URL",
+            "name": "MONGO_URI",
             "value": "mongodb://$(NDSLABS_STACK)-mongo:27017",
             "canOverride": false
         },
@@ -90,6 +90,11 @@
             "name": "RABBITMQ_URI",
             "value": "amqp://guest:guest@$(NDSLABS_STACK)-rabbitmq:5672/%2f",
             "canOverride": false
+        },
+        {
+          "name": "RABBITMQ_CLOWDERURL",
+          "value": "http://$(NDSLABS_STACK)-clowderbd",
+          "canOverride": false
         }
     ],
     "ports": [

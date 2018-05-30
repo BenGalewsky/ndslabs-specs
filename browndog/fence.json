@@ -66,7 +66,7 @@
             "canOverride": true
         },
         {
-            "name": "MONGO_URL",
+            "name": "MONGO_URI",
             "value": "mongodb://$(NDSLABS_STACK)-mongo:27017",
             "canOverride": false
         },
